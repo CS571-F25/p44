@@ -1,7 +1,7 @@
 import { HashRouter, Route, Routes } from 'react-router'
 import './App.css'
-import AboutMe from './components/AboutMe'
-import Home from './components/Home'
+import AboutMe from './pages/AboutMe'
+import Home from './pages/Home'
 
 
 function App() {
