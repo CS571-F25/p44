@@ -2,7 +2,6 @@ import { KeyboardControls } from "@react-three/drei";
 import Ecctrl, { EcctrlAnimation } from "ecctrl";
 import CharacterModel from "./CharacterModel";
 import { keyboardMap } from "../core/Controls";
-import CameraRig from "./CameraRig";
 import { useState, useRef } from "react";
 
 const characterURL = "/p44/assets/models/wizardV_animated2.glb";
