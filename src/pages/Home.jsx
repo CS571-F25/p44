@@ -1,7 +1,21 @@
-export default function Home(props){
+import React from 'react';
+import { HashRouter, Route, Routes, useNavigate } from 'react-router'
+import { Button } from 'react-bootstrap'
 
-    return <div>
-        <h1>Home</h1>
-    </div>
+export default function Home() {
 
+	const navigate = useNavigate();
+
+  return (
+	<div>
+		<h1>Home</h1>
+		<Button
+			onClick={() => {
+				navigate('/game');
+			}}
+		>
+			Game
+		</Button>
+	</div>
+  );
 }
