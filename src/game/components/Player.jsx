@@ -3,6 +3,8 @@ import Ecctrl, { EcctrlAnimation } from "ecctrl";
 import CharacterModel from "./CharacterModel";
 import { keyboardMap } from "../core/Controls";
 import { useState, useRef } from "react";
+import PlayerShadow from "./PlayerShadow"; 
+
 
 const characterURL = "/p44/assets/models/wizardV_animated2.glb";
 
@@ -49,6 +51,7 @@ export default function Player() {
 					>
 						<group position={[0, -1.27, 0]}>
 							<CharacterModel scale={0.5} />
+							<PlayerShadow scale={0.6} opacity={0.8} yOffset={0.01} />
 						</group>
 					</EcctrlAnimation>
 				</Ecctrl>

@@ -1,0 +1,5 @@
+11/21/2025
+- Already installed zustand through npm
+- Use store to manage global state
+- Make time of day to its own store
+    - So like when it's night, player shadow disappear. No need for prop drilling or context
