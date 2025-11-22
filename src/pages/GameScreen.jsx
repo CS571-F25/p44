@@ -3,11 +3,12 @@ import { OrbitControls, PointerLockControls, Sky, Stars, Stats, Billboard } from
 import World from "../game/components/World";
 import { Text } from "@react-three/drei";
 import { useState } from "react";
+import { useTimeOfDayStore } from "../game/store/TimeOfDayStore";
 import * as THREE from "three";
 
 export default function GameScreen() {
 
-    const [night, setNight] = useState(false);
+    const { night, toggleNight } = useTimeOfDayStore();
 
     return (
         <div style={{ position: "fixed", inset: 0 }}>
@@ -25,7 +26,7 @@ export default function GameScreen() {
                     borderRadius: 4,
                     cursor: "pointer"
                 }}
-                onClick={() => setNight(prev => !prev)}
+                onClick={toggleNight}
             >
                   {night ? "Night" : "Day"}
             </button>

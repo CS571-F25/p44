@@ -3,22 +3,25 @@ import Ecctrl, { EcctrlAnimation } from "ecctrl";
 import CharacterModel from "./CharacterModel";
 import { keyboardMap } from "../core/Controls";
 import { useState, useRef } from "react";
-import PlayerShadow from "./PlayerShadow"; 
+import PlayerShadow from "./PlayerShadow";
+import { useTimeOfDayStore } from "../store/TimeOfDayStore";
 
 
-const characterURL = "/p44/assets/models/wizardV_animated2.glb";
+const characterURL = "/p44/assets/models/bcat.glb";
 
 const animationSet = {
-  idle: "idle",
-  walk: "running",
-  run: "running",
-  jump: "jumping",
-  jumpIdle: "jumping",
-  jumpLand: "jumping",
-  fall: "falling"
+//   idle: "idle",
+//   walk: "running",
+//   run: "running",
+//   jump: "jumping",
+//   jumpIdle: "jumping",
+//   jumpLand: "jumping",
+//   fall: "falling"
 };
 
 export default function Player() {
+
+	const night = useTimeOfDayStore((state) => state.night);
 
 	return (
 		<KeyboardControls map={keyboardMap}>
@@ -43,6 +46,7 @@ export default function Player() {
 					sprintMult={2} // sprinting speed modifies walking speed
 
 					jumpVel={4}
+					fallingGravityScale={0.65}
 					>
 					<EcctrlAnimation
 						characterURL={characterURL}
@@ -51,7 +55,7 @@ export default function Player() {
 					>
 						<group position={[0, -1.27, 0]}>
 							<CharacterModel scale={0.5} />
-							<PlayerShadow scale={0.6} opacity={0.8} yOffset={0.01} />
+							{!night && <PlayerShadow scale={0.6} opacity={0.8} yOffset={0.01} />}
 						</group>
 					</EcctrlAnimation>
 				</Ecctrl>
