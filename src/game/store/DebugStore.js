@@ -2,7 +2,7 @@
 import { create } from "zustand";
 
 export const useDebugStore = create((set) => ({
-  debug: false, 
+  debug: true, 
   toggleDebug: () => set((state) => ({ debug: !state.debug })),
   setDebug: (value) => set({ debug: value }),
 }));

@@ -3,3 +3,19 @@
 - Use store to manage global state
 - Make time of day to its own store
     - So like when it's night, player shadow disappear. No need for prop drilling or context
+
+11/23/2025
+Bugs:
+- Shadow is not on the ground, 
+when the player jumps the shadow's y-axis is shifted with the player
+
+- Player can spam jump by holding down the space bar.
+Jump animation can't keep up, find a way to do jump per space hit
+
+Feature to-do
+- Try messing around with drei clouds
+- Enemies
+- Godrays
+- Attack w/Slash (you already have the gif)
+    - Figure out a way to load it in (probably on a plane)
+    - make it always face the direction of forward

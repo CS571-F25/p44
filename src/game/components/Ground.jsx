@@ -12,7 +12,7 @@ export default function Ground() {
   return (
     <RigidBody type="fixed" colliders="trimesh">
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
-        <boxGeometry args={[500, 500]} />
+        <boxGeometry args={[1000, 1000]} />
         <meshStandardMaterial map={texture} />
       </mesh>
     </RigidBody>

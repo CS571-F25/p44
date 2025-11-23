@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sky, Stars, Stats, Billboard } from "@react-three/drei";
+import { Sky, Stars, Stats, Billboard, Clouds, Cloud } from "@react-three/drei";
 import World from "../game/components/World";
 import { Text } from "@react-three/drei";
 import { useState } from "react";
@@ -15,10 +15,27 @@ export default function GameScreen() {
     const { night, toggleNight } = useTimeOfDayStore();
     const { debug, toggleDebug } = useDebugStore();
 
-
     return (
         <div style={{ position: "fixed", inset: 0 }}>
             
+            {debug && (
+                <div
+                style={{
+                    position: "absolute",
+                    zIndex: 20,
+                    bottom: 23,
+                    left: 200,
+                    color: "white",
+                    fontSize: "18px",
+                    background: "rgba(0,0,0,0.5)",
+                    padding: "6px 10px",
+                    borderRadius: 4
+                }}
+                >
+                    Mouse capture disabled
+                </div>
+            )}
+
             <button
                 style={{
                     position: "absolute",
@@ -58,7 +75,8 @@ export default function GameScreen() {
             <Canvas
                 onPointerDown={(e) => {
                     // Request pointer lock on the canvas element
-                    (e.target).requestPointerLock();
+                    if(debug === true) return;
+                        (e.target).requestPointerLock();
                     }}
 
                 >
@@ -68,6 +86,7 @@ export default function GameScreen() {
                 <ambientLight intensity={1} />
                 <directionalLight position={[5, 10, 5]} castShadow />
                 <World />
+
 
                 {debug && (
                     <>
