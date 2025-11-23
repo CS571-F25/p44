@@ -18,9 +18,10 @@ export default function PositionDisplay() {
                     background: "rgba(0,0,0,0.6)",
                     color: "white",
                     padding: "14px 24px",
-                    borderRadius: 4
+                    borderRadius: 4,
+                    width: "120px"
                     }}>
-                        
+
                     <div><b>Player Position</b></div>
                     <div>X: {pos.x.toFixed(2)}</div>
                     <div>Y: {pos.y.toFixed(2)}</div>

@@ -8,14 +8,35 @@ import * as THREE from "three";
 import { usePlayerStore } from "../game/store/PlayerStore";
 import { Perf } from "r3f-perf";
 import PositionDisplay from "../game/components/PlayerPositionDisplay.jsx";
+import { useDebugStore } from "../game/store/DebugStore.js";
 
 export default function GameScreen() {
 
     const { night, toggleNight } = useTimeOfDayStore();
+    const { debug, toggleDebug } = useDebugStore();
+
 
     return (
         <div style={{ position: "fixed", inset: 0 }}>
             
+            <button
+                style={{
+                    position: "absolute",
+                    zIndex: 10,
+                    bottom: 20,     
+                    left: 100,       
+                    padding: "10px 16px",
+                    background: "#222",
+                    color: "white",
+                    border: "1px solid #555",
+                    borderRadius: 4,
+                    cursor: "pointer"
+                }}
+                onClick={toggleDebug}
+            >
+                  Debug
+            </button>
+
             <button
                 style={{
                     position: "absolute",
@@ -44,11 +65,16 @@ export default function GameScreen() {
 
                 <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
                 {/* <Stats showPanel={0} className="stats"/> */}
-                <Perf position="bottom-right" deepAnalyze={true} />
                 <ambientLight intensity={1} />
                 <directionalLight position={[5, 10, 5]} castShadow />
                 <World />
-                <PositionDisplay />
+
+                {debug && (
+                    <>
+                        <Perf position="bottom-right" deepAnalyze={true} />
+                        <PositionDisplay />
+                    </>
+                )}
 
                 {/* Set Day */}
                 {!night && (
