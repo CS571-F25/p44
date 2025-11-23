@@ -1,11 +1,16 @@
 import { Physics } from "@react-three/rapier";
 import Player from "./Player";
 import Ground from "./Ground";
+import { Bvh } from "@react-three/drei";
+
 export default function World() {
   return (
-    <Physics debug={false}>
+    <Physics debug={true}>
       <Player />
-      <Ground />
+      
+      <Bvh firstHitOnly>
+        <Ground />
+      </Bvh>
     </Physics>
   );
 }

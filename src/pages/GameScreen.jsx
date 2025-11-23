@@ -1,10 +1,13 @@
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PointerLockControls, Sky, Stars, Stats, Billboard } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Sky, Stars, Stats, Billboard } from "@react-three/drei";
 import World from "../game/components/World";
 import { Text } from "@react-three/drei";
 import { useState } from "react";
 import { useTimeOfDayStore } from "../game/store/TimeOfDayStore";
 import * as THREE from "three";
+import { usePlayerStore } from "../game/store/PlayerStore";
+import { Perf } from "r3f-perf";
+import PositionDisplay from "../game/components/PlayerPositionDisplay.jsx";
 
 export default function GameScreen() {
 
@@ -12,7 +15,7 @@ export default function GameScreen() {
 
     return (
         <div style={{ position: "fixed", inset: 0 }}>
-
+            
             <button
                 style={{
                     position: "absolute",
@@ -40,11 +43,13 @@ export default function GameScreen() {
                 >
 
                 <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-                <Stats showPanel={0} className="stats"/>
+                {/* <Stats showPanel={0} className="stats"/> */}
+                <Perf position="bottom-right" deepAnalyze={true} />
                 <ambientLight intensity={1} />
                 <directionalLight position={[5, 10, 5]} castShadow />
                 <World />
-                
+                <PositionDisplay />
+
                 {/* Set Day */}
                 {!night && (
                     <Sky
