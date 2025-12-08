@@ -39,6 +39,7 @@ export default function Player() {
 	return (
 		<KeyboardControls map={keyboardMap}>
 				<Ecctrl
+					name="player"
 					animated={true}
 					autoBalance={false}
 					camInitDis={-10}
