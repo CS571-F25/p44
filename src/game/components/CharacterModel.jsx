@@ -2,7 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three"
 
 export default function CharacterModel(props) {
-    const { scene } = useGLTF("/p44/assets/models/wizardV_animated2.glb");
+    const { scene } = useGLTF("/p44/assets/models/wizardV_animated10.glb");
     return <primitive object={scene} />;
 }
 
