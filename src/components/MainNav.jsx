@@ -4,7 +4,7 @@ import MusicToggle from "./MusicToggle";
 
 export default function MainNav({ isMusicOn, onToggleMusic }) {
   return (
-    <Navbar bg="light" expand="lg" fixed="top" className="shadow-sm">
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="shadow-sm">
       <Container>
         <Navbar.Brand as={NavLink} to="/" aria-label="XZSO home page">
           XZSO

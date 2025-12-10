@@ -7,7 +7,7 @@ export default function Feedback() {
   };
 
   return (
-    <Container className="mt-5 mb-5" style={{ maxWidth: "720px" }}>
+    <Container className="page-panel">
       <section aria-labelledby="feedback-heading">
         <h1 id="feedback-heading">Feedback</h1>
         <p>

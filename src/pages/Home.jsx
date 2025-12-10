@@ -6,11 +6,13 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <Container className="mt-5 mb-5" style={{ maxWidth: "960px" }}>
+    <Container className="page-panel">
       {/* Hero section */}
       <section className="text-center mb-5" aria-labelledby="home-heading">
-        <h1 id="home-heading">XZSO</h1>
-        <p>
+        <h1 id="home-heading" style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>
+          XZSO
+        </h1>
+        <p style={{ maxWidth: "44rem", margin: "0 auto" }}>
           XZSO is a small browser-based survival game inspired by Vampire
           Survivors and Megabonk. Wander an endless map, fight enemies,
           and see how long you can last.
@@ -27,19 +29,6 @@ export default function Home() {
           Use your keyboard and mouse to move and look around. The game runs
           directly in your browser, no download required.
         </p>
-      </section>
-
-      {/* Screenshot */}
-      <section className="mb-5" aria-label="Game screenshot">
-        <img
-          src="/assets/images/game-screenshot.png"
-          alt="In-game view of the XZSO character standing in the desert."
-          style={{
-            width: "100%",
-            borderRadius: "16px",
-            boxShadow: "0 16px 40px rgba(0, 0, 0, 0.25)",
-          }}
-        />
       </section>
 
       {/* Feature cards – only final-player features */}
