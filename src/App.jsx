@@ -65,6 +65,13 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
           </Routes>
         </main>
+
+        <footer className="site-footer" aria-label="Site footer">
+          <p className="mb-0">
+            © 2025 XZSO Team · Built with React and Three.js.
+          </p>
+        </footer>
+        
       </HashRouter>
     </>
   );

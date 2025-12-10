@@ -108,3 +108,39 @@ main {
   font-size: 1.25rem;
   color: #e5e7eb;
 }
+
+/* Footer */
+.site-footer {
+  max-width: 960px;
+  margin: 0 auto 1.5rem auto;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+/* Themed accordion for Dev Log */
+.accordion-item {
+  background-color: transparent;
+  border-color: rgba(148, 163, 184, 0.5);
+}
+
+.accordion-button {
+  background-color: #020617;
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #111827;
+  color: #fbbf24; /* gold when open */
+  box-shadow: inset 0 -1px 0 rgba(148, 163, 184, 0.5);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.8);
+}
+
+.accordion-body {
+  background-color: #020617;
+  color: #e5e7eb;
+}
