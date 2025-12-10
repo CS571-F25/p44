@@ -84,7 +84,6 @@ export default function GameScreen() {
 
                 >
 
-                <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
                 {/* <Stats showPanel={0} className="stats"/> */}
                 <ambientLight intensity={1} />
                 <directionalLight position={[5, 10, 5]} castShadow />
@@ -100,12 +99,15 @@ export default function GameScreen() {
 
                 {/* Set Day */}
                 {!night && (
-                    <Sky
-                        distance={450000}
-                        sunPosition={[1, 1, 0]}
-                        inclination={0}
-                        azimuth={0.25}
-                    /> 
+                    <>
+                        <Sky
+                            distance={450000}
+                            sunPosition={[1, 1, 0]}
+                            inclination={0}
+                            azimuth={0.25}
+                        /> 
+                        <fogExp2 attach="fog" color="lightblue" density={0.007} />
+                    </>
                 )}
 
 
@@ -113,6 +115,7 @@ export default function GameScreen() {
                 {night && (
                 <>
                     <color attach="background" args={["black"]} />
+                    <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
                     <fogExp2 attach="fog" color="black" density={0.05} />
                 </>
                 )}

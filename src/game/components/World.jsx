@@ -4,16 +4,17 @@ import Ground from "./Ground";
 import { Bvh, KeyboardControls } from "@react-three/drei";
 import { useDebugStore } from "../store/DebugStore";
 import { keyboardMap } from "../core/Controls";
+import InstancedTrees from "./InstancedTree";
 
 import Enemy from "./Enemy"
-import InstancedEnemies from "./InstancedEnemies"
+import InstancedEnemies from "./InstancedTree"
 import { useMemo } from "react";
 
 export default function World() {
 
   const { debug, toggleDebug } = useDebugStore();
 
-    // number of enemies
+  // number of enemies
   const ENEMY_COUNT = 0;
   const SPAWN_RADIUS = 20;
 
@@ -29,18 +30,25 @@ export default function World() {
     });
   }, []);
 
+
   return (
-    <Physics debug={debug}>
+    
+    <>
+	  
+      <Physics debug={debug}>
       <Player />
-      
+	  <InstancedTrees count={2000} areaSize={700} globalScale={0.03}/>
+
       {/* Spawn many enemies */}
       {enemyPositions.map((pos, i) => (
         <Enemy key={i} position={pos} />
       ))}
 
       <Bvh firstHitOnly>
-        <Ground />
+      <Ground />
       </Bvh>
-    </Physics>
+      </Physics>
+    </>
+
   );
 }
