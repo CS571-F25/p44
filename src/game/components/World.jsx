@@ -5,9 +5,10 @@ import { Bvh, KeyboardControls } from "@react-three/drei";
 import { useDebugStore } from "../store/DebugStore";
 import { keyboardMap } from "../core/Controls";
 import InstancedTrees from "./InstancedTree";
-
 import Enemy from "./Enemy"
-import InstancedEnemies from "./InstancedTree"
+import HologramCylinder from "./HologramCylinder";
+
+
 import { useMemo } from "react";
 
 export default function World() {
@@ -34,10 +35,13 @@ export default function World() {
   return (
     
     <>
-	  
+      <InstancedTrees count={3000} areaSize={1000} globalScale={0.03}/>
+      
       <Physics debug={debug}>
       <Player />
-	    <InstancedTrees count={3000} areaSize={1000} globalScale={0.03}/>
+	    
+      <HologramCylinder />
+
 
       {/* Spawn many enemies */}
       {enemyPositions.map((pos, i) => (

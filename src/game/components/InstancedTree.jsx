@@ -20,7 +20,7 @@ export default function InstancedTrees({ count = 500, areaSize = 300, globalScal
   const placements = useMemo(() => {
     if (treeMeshes.length === 0) return [];
 
-    const spawnRadius = 30; // <--- size of no-tree area around player spawn
+    const spawnRadius = 50; // <--- size of no-tree area around player spawn
 
     return Array.from({ length: count }, () => {
       let x, z;
