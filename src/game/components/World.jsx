@@ -37,7 +37,7 @@ export default function World() {
 	  
       <Physics debug={debug}>
       <Player />
-	  <InstancedTrees count={2000} areaSize={700} globalScale={0.03}/>
+	    <InstancedTrees count={3000} areaSize={1000} globalScale={0.03}/>
 
       {/* Spawn many enemies */}
       {enemyPositions.map((pos, i) => (

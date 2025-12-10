@@ -11,6 +11,8 @@ import PositionDisplay from "../game/components/PlayerPositionDisplay.jsx";
 import { useDebugStore } from "../game/store/DebugStore.js";
 
 import Enemy from "../game/components/Enemy.jsx"
+import KeyControls from "../game/components/KeyControlUI.jsx"; 
+
 
 export default function GameScreen() {
 
@@ -83,6 +85,8 @@ export default function GameScreen() {
                     }}
 
                 >
+                
+                <KeyControls />
 
                 {/* <Stats showPanel={0} className="stats"/> */}
                 <ambientLight intensity={1} />
