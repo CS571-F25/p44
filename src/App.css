@@ -8,16 +8,103 @@ main {
 .page-panel {
   max-width: 960px;
   margin: 2.5rem auto;
-  padding: 2.5rem 2rem;
-  background-color: rgba(248, 250, 252, 0.94); /* light panel on dark bg */
-  color: #0f172a;
+  padding: 2.5rem 2.25rem;
+  background-color: rgba(15, 23, 42, 0.9); /* dark glass panel */
+  color: #e5e7eb;
   border-radius: 18px;
-  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  backdrop-filter: blur(10px);
 }
 
+/* Smaller layout on phones */
 @media (max-width: 600px) {
   .page-panel {
     margin: 1.5rem 1rem;
     padding: 1.75rem 1.25rem;
   }
+}
+
+/* --- Home hero styling --- */
+.hero-section {
+  margin-bottom: 2.5rem;
+}
+
+.hero-title {
+  font-size: 2.7rem;
+  margin-bottom: 0.4rem;
+  color: #f9fafb;
+}
+
+.hero-tagline {
+  max-width: 36rem;
+  margin: 0 auto 0.75rem auto;
+  color: #e5e7eb;
+}
+
+.hero-subtext {
+  max-width: 36rem;
+  margin: 0.5rem auto 0;
+  color: #cbd5f5;
+  font-size: 0.95rem;
+}
+
+/* Side info card in hero */
+.hero-meta-card {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(94, 234, 212, 0.5);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+  color: #e5e7eb;
+}
+
+.hero-meta-heading {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #a5b4fc;
+}
+
+.hero-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-meta-label {
+  color: #9ca3af;
+}
+
+.hero-meta-value {
+  color: #e5e7eb;
+}
+
+/* --- Feature cards on Home --- */
+.feature-row {
+  margin-bottom: 2.2rem;
+}
+
+.feature-card {
+  background: radial-gradient(circle at top left, #1e293b, #020617);
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.9);
+}
+
+.feature-card .card-title {
+  color: #fbbf24; /* soft gold accent */
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.feature-card .card-text {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+/* Feedback section heading */
+.feedback-heading {
+  font-size: 1.25rem;
+  color: #e5e7eb;
 }

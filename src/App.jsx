@@ -25,8 +25,6 @@ function App() {
       const next = !prev;
 
       if (next) {
-        // Start (or resume) music on click
-        audio.currentTime = 0;
         audio
           .play()
           .catch(() => {
