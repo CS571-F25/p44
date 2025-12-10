@@ -1,4 +1,9 @@
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import ProfileCard from "../components/ProfileCard";
+
+// Import images
+import SunPfp from "../assets/images/Profile_Sun.jpg";
+import XiaoPfp from "../assets/images/Profile_Xiao.png";
 
 export default function AboutUs() {
   return (
@@ -11,6 +16,25 @@ export default function AboutUs() {
         About Us
       </h1>
 
+      <Row className="g-4 justify-content-center mb-5">
+        <Col md={4} className="d-flex justify-content-center">
+          <ProfileCard
+            name="Xiao"
+            role="Gameplay & 3D Systems"
+            imgSrc={XiaoPfp}
+            alt="Profile picture of Xiao"
+          />
+        </Col>
+        <Col md={4} className="d-flex justify-content-center">
+          <ProfileCard
+            name="Sun"
+            role="UI/UX & Web Development"
+            imgSrc={SunPfp}
+            alt="Profile picture of Sun"
+          />
+        </Col>
+      </Row>
+
       <Row className="g-4">
         {/* Team story */}
         <Col md={7}>
@@ -20,9 +44,9 @@ export default function AboutUs() {
             project. Our team members are Xiao and Sun.
           </p>
           <p>
-            Xiao is carrying this project by making all the important
-            components of the game. Sun focuses on the UI, trying to make a
-            page that is worth looking at and easier to use.
+            Xiao handles all the important game components, including movement,
+            environment, and gameplay systems. Sun focuses on UI polish, front-end
+            structure, and making the site visually appealing and easy to use.
           </p>
           <p>
             Our goal is to create a small but polished web game that runs

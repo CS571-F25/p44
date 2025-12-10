@@ -86,6 +86,8 @@ export default function DevLog() {
             WCAG AA. Improved focus outlines, and checked that forms can be
             completed by keyboard. Did final wording passes on the Home, About Us,
             and Dev Log pages and tested the live build hosted on GitHub Pages.
+            Changed the in-game map to forest, and added profile pictures in the
+            About Us page.
           </p>
         </DevLogEntry>
       </Accordion>
