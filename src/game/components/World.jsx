@@ -16,8 +16,8 @@ export default function World() {
   const { debug, toggleDebug } = useDebugStore();
 
   // number of enemies
-  const ENEMY_COUNT = 0;
-  const SPAWN_RADIUS = 20;
+  const ENEMY_COUNT = 30;
+  const SPAWN_RADIUS = 100;
 
   // Generate random enemy positions once
   const enemyPositions = useMemo(() => {

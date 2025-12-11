@@ -78,7 +78,7 @@ export default function Player() {
 					</EcctrlAnimation>
 					{!night && <PlayerShadow scale={0.6} opacity={0.8} yOffset={-1.26} />}
 				</Ecctrl>
-				<AutoAttack interval={1000} />
+				<AutoAttack interval={3000} />
 		</KeyboardControls>
 	);
 }

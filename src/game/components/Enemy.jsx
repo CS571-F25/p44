@@ -1,3 +1,4 @@
+// Enemy.js
 import { RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
@@ -5,12 +6,23 @@ import { usePlayerStore } from "../store/PlayerStore";
 
 export default function Enemy({ position = [0, 0, 0], speed = 3 }) {
   const ref = useRef();
-  const [collidingWithPlayer, setCollidingWithPlayer] = useState(false);
-  const seed = useRef(Math.random() * 10000);
+  const [dead, setDead] = useState(false);
+
+  // Kill the enemy
+  function killEnemy() {
+    if (dead || !ref.current) return; // Prevent double kill
+    setDead(true);
+
+    // Disable physics and freeze
+    ref.current.setLinvel({ x: 0, y: 0, z: 0 }, true);
+    ref.current.setAngvel({ x: 0, y: 0, z: 0 }, true);
+    ref.current.setEnabled(false);
+  }
 
   useFrame(() => {
+    if (dead) return;
+
     const enemy = ref.current;
-    
     if (!enemy) return;
 
     const playerPos = usePlayerStore.getState().position;
@@ -27,10 +39,6 @@ export default function Enemy({ position = [0, 0, 0], speed = 3 }) {
       { x: (dx / len) * speed, y: (dy / len) * speed, z: (dz / len) * speed },
       true
     );
-
-    if (collidingWithPlayer) {
-      console.log("player hit — still colliding");
-    }
   });
 
   return (
@@ -40,19 +48,22 @@ export default function Enemy({ position = [0, 0, 0], speed = 3 }) {
       colliders="ball"
       name="enemy"
       ccd={true}
-      onCollisionEnter={({ other }) => {
-        if (other.rigidBodyObject?.name === "player") {
-          setCollidingWithPlayer(true);
+      // 3. FIX: Listen for sensor intersections (The Slash)
+      onIntersectionEnter={({ other }) => {
+        if (other.rigidBodyObject?.name === "slash") {
+          killEnemy();
         }
       }}
-
-      onCollisionExit={({ other }) => {
-        if (other.rigidBodyObject?.name === "player") {
-          setCollidingWithPlayer(false);
+      // Handle physical collisions (The Player)
+      onCollisionEnter={({ other }) => {
+        const otherName = other.rigidBodyObject?.name;
+        if (otherName === "slash") { 
+            // Just in case slash is changed to non-sensor later
+            killEnemy(); 
         }
       }}
     >
-      <mesh>
+      <mesh visible={!dead}>
         <sphereGeometry args={[0.5, 16, 16]} />
         <meshStandardMaterial color="red" />
       </mesh>
