@@ -6,6 +6,8 @@ import { useState, useRef, useEffect } from "react";
 import PlayerShadow from "./PlayerShadow";
 import { useTimeOfDayStore } from "../store/TimeOfDayStore";
 import { usePlayerStore } from "../store/PlayerStore";
+import { usePlayerRotationStore } from "../store/PlayerRotationStore";
+import AutoAttack from "./AutoAttack";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -28,12 +30,17 @@ export default function Player() {
 	const worldPos = new THREE.Vector3();
 	const modelGroup = useRef();
   	const setPosition = usePlayerStore((state) => state.setPosition);
+	const setRotation = usePlayerRotationStore((state) => state.setRotation);
 
 	useFrame(() => {
 		if (!modelGroup.current) return;
 		//console.log(performance.now())
 		modelGroup.current.getWorldPosition(worldPos);
 		setPosition(worldPos);
+
+		const worldQuat = new THREE.Quaternion();
+		modelGroup.current.getWorldQuaternion(worldQuat);
+		setRotation(worldQuat);
 	});
 
 	return (
@@ -71,6 +78,7 @@ export default function Player() {
 					</EcctrlAnimation>
 					{!night && <PlayerShadow scale={0.6} opacity={0.8} yOffset={-1.26} />}
 				</Ecctrl>
+				<AutoAttack interval={1000} />
 		</KeyboardControls>
 	);
 }
