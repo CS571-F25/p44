@@ -23,7 +23,7 @@ export default function Home() {
             </h1>
             <p className="hero-tagline">
               A small browser based survival game inspired by Vampire Survivors
-              and Megabonk. Wander an endless forest, fight enemies, and see how
+              and Megabonk. Wander a large forest, fight enemies, and see how
               long you can last.
             </p>
             <Button
@@ -75,9 +75,8 @@ export default function Home() {
       >
         <Row className="g-4">
           <Col md={4}>
-            <FeatureCard title="Endless forest">
-              Explore a wide open map that does not end. Survive longer as the
-              difficulty slowly increases over time.
+            <FeatureCard title="Large forest">
+              Explore a wide open map, and survive as long as you can.
             </FeatureCard>
           </Col>
           <Col md={4}>
@@ -88,7 +87,7 @@ export default function Home() {
           </Col>
           <Col md={4}>
             <FeatureCard title="In browser 3D">
-              Runs directly in your browserr, so there is nothing to install or
+              Runs directly in your browser, so there is nothing to install or
               download before you start playing.
             </FeatureCard>
           </Col>

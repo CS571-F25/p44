@@ -9,7 +9,7 @@ export default function Feedback() {
   return (
     <Container className="page-panel">
       <section aria-labelledby="feedback-heading">
-        <h1 id="feedback-heading">Feedback</h1>
+        <h1 id="feedback-heading">Feedback (Under Construction)</h1>
         <p>
           Help us improve XZSO by sharing your thoughts. This demo form keeps
           everything in your browser only, but it shows how we could collect

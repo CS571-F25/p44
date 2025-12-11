@@ -16,7 +16,8 @@ export default function AboutUs() {
         About Us
       </h1>
 
-      <Row className="g-4 justify-content-center mb-5">
+<Row className="justify-content-center mb-5" style={{ gap: "5rem" }}>
+
         <Col md={4} className="d-flex justify-content-center">
           <ProfileCard
             name="Xiao"
@@ -44,7 +45,7 @@ export default function AboutUs() {
             project. Our team members are Xiao and Sun.
           </p>
           <p>
-            Xiao handles all the important game components, including movement,
+            Xiao handles the game components, including movement,
             environment, and gameplay systems. Sun focuses on UI polish, front-end
             structure, and making the site visually appealing and easy to use.
           </p>
